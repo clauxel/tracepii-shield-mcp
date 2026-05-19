@@ -1,0 +1,244 @@
+{
+  "name": "tracepiishield",
+  "title": "TracePII Shield",
+  "description": "Scan prompts, responses, and tool-call payloads for sensitive fields, redact risky content, and issue trace audit receipts.",
+  "version": "1.0.0",
+  "websiteUrl": "https://tracepiishield.clauxel.com/",
+  "documentationUrl": "https://tracepiishield.clauxel.com/mcp/",
+  "endpointUrl": "https://tracepiishield.clauxel.com/mcp",
+  "transport": "streamable-http",
+  "authentication": {
+    "type": "bearer",
+    "required": true,
+    "header": "Authorization",
+    "format": "Bearer <paid-token>"
+  },
+  "paidAccess": {
+    "required": true,
+    "checkoutUrl": "https://tracepiishield.clauxel.com/api/agent-checkout",
+    "tokenStatusUrl": "https://tracepiishield.clauxel.com/api/mcp-token/status",
+    "tokenClaimUrl": "https://tracepiishield.clauxel.com/api/mcp-token/claim",
+    "defaultPlan": "team",
+    "pricing": [
+      {
+        "id": "starter",
+        "name": "Starter",
+        "monthlyUsd": 49
+      },
+      {
+        "id": "team",
+        "name": "Team",
+        "monthlyUsd": 149
+      },
+      {
+        "id": "compliance",
+        "name": "Compliance",
+        "monthlyUsd": 399
+      }
+    ]
+  },
+  "tools": [
+    {
+      "name": "scan_trace_pii",
+      "description": "TracePII Shield scan trace pii",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "sample": {
+            "type": "string",
+            "description": "Workflow sample, schema, policy fixture, or agent output."
+          },
+          "context": {
+            "type": "string",
+            "description": "Optional review context."
+          }
+        },
+        "required": [
+          "sample"
+        ]
+      },
+      "outputSchema": {
+        "type": "object",
+        "properties": {
+          "verdict": {
+            "type": "string"
+          },
+          "reason": {
+            "type": "string"
+          },
+          "receipt_id": {
+            "type": "string"
+          },
+          "usage_units": {
+            "type": "integer"
+          },
+          "next_action": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    {
+      "name": "redact_tool_payload",
+      "description": "TracePII Shield redact tool payload",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "sample": {
+            "type": "string",
+            "description": "Workflow sample, schema, policy fixture, or agent output."
+          },
+          "context": {
+            "type": "string",
+            "description": "Optional review context."
+          }
+        },
+        "required": [
+          "sample"
+        ]
+      },
+      "outputSchema": {
+        "type": "object",
+        "properties": {
+          "verdict": {
+            "type": "string"
+          },
+          "reason": {
+            "type": "string"
+          },
+          "receipt_id": {
+            "type": "string"
+          },
+          "usage_units": {
+            "type": "integer"
+          },
+          "next_action": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    {
+      "name": "classify_sensitive_field",
+      "description": "TracePII Shield classify sensitive field",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "sample": {
+            "type": "string",
+            "description": "Workflow sample, schema, policy fixture, or agent output."
+          },
+          "context": {
+            "type": "string",
+            "description": "Optional review context."
+          }
+        },
+        "required": [
+          "sample"
+        ]
+      },
+      "outputSchema": {
+        "type": "object",
+        "properties": {
+          "verdict": {
+            "type": "string"
+          },
+          "reason": {
+            "type": "string"
+          },
+          "receipt_id": {
+            "type": "string"
+          },
+          "usage_units": {
+            "type": "integer"
+          },
+          "next_action": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    {
+      "name": "issue_pii_receipt",
+      "description": "TracePII Shield issue pii receipt",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "sample": {
+            "type": "string",
+            "description": "Workflow sample, schema, policy fixture, or agent output."
+          },
+          "context": {
+            "type": "string",
+            "description": "Optional review context."
+          }
+        },
+        "required": [
+          "sample"
+        ]
+      },
+      "outputSchema": {
+        "type": "object",
+        "properties": {
+          "verdict": {
+            "type": "string"
+          },
+          "reason": {
+            "type": "string"
+          },
+          "receipt_id": {
+            "type": "string"
+          },
+          "usage_units": {
+            "type": "integer"
+          },
+          "next_action": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    {
+      "name": "export_trace_audit",
+      "description": "TracePII Shield export trace audit",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "sample": {
+            "type": "string",
+            "description": "Workflow sample, schema, policy fixture, or agent output."
+          },
+          "context": {
+            "type": "string",
+            "description": "Optional review context."
+          }
+        },
+        "required": [
+          "sample"
+        ]
+      },
+      "outputSchema": {
+        "type": "object",
+        "properties": {
+          "verdict": {
+            "type": "string"
+          },
+          "reason": {
+            "type": "string"
+          },
+          "receipt_id": {
+            "type": "string"
+          },
+          "usage_units": {
+            "type": "integer"
+          },
+          "next_action": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  ],
+  "inputOutputSummary": "Each tool accepts structured workflow evidence and returns verdict, reason, receipt_id, usage_units, and next_action JSON.",
+  "supportEmail": "support@aigeamy.com"
+}
