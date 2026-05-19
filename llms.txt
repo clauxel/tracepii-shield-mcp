@@ -1,0 +1,12 @@
+# TracePII Shield MCP
+
+Paid remote MCP for LLM trace PII scanning, payload redaction, sensitive field classification, privacy receipts, and trace audit exports.
+
+Website: https://tracepiishield.clauxel.com/
+MCP endpoint: https://tracepiishield.clauxel.com/mcp
+Server card: https://tracepiishield.clauxel.com/server-card.json
+Docs: https://github.com/clauxel/tracepii-shield-mcp
+
+Use case: Redact PII from LLM traces and tool payloads before they leave review.
+Authentication: Bearer token required for production use.
+Tools: scan_trace_pii, redact_tool_payload, classify_sensitive_field, issue_pii_receipt, export_trace_audit
