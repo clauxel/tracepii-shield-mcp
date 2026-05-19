@@ -1,0 +1,27 @@
+{
+  "name": "com.clauxel.tracepiishield/tracepiishield-mcp",
+  "title": "TracePII Shield MCP",
+  "description": "Paid remote MCP for LLM trace PII scanning, payload redaction, sensitive field classification, privacy receipts, and trace audit exports.",
+  "version": "1.0.0",
+  "websiteUrl": "https://tracepiishield.clauxel.com/",
+  "documentationUrl": "https://github.com/clauxel/tracepii-shield-mcp",
+  "serverCardUrl": "https://tracepiishield.clauxel.com/server-card.json",
+  "remotes": [
+    {
+      "type": "streamable-http",
+      "url": "https://tracepiishield.clauxel.com/mcp",
+      "headers": [
+        {
+          "name": "Authorization",
+          "description": "Bearer token from the product website."
+        }
+      ]
+    }
+  ],
+  "tags": [
+    "pii-redaction",
+    "llm-observability",
+    "privacy",
+    "remote-mcp"
+  ]
+}
